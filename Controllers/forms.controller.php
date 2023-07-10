@@ -39,7 +39,7 @@
             $result;
             try {
                 $table = "registro";
-                $result = FormsModel::mdlToListTable($table, $token);
+                $result = FormsModel::mdlToListTable($table, null, $token);
             }
             catch(PDOException $ex) {
                 echo "Error interno 'ToListTable()'. Error: " . $ex->getMessage();
@@ -106,7 +106,7 @@
                     $table = "registro";
                         
                         // Para comprobar que el token obtenido de la vista y el token de la base de datos coinciden
-                    $user = FormsModel::mdlToListTable($table, $token);
+                    $user = FormsModel::mdlToListTable($table, null, $token);
                     $checkToken = md5($user[0]->user_name . "+" . $user[0]->email);
                                                                                                            
                     if($checkToken == $token) {
@@ -138,7 +138,7 @@
                     $token = $_POST["inputDelete"];
 
                         // comprobación de token obtenido y token generado en base de datos
-                    $user = FormsModel::mdlToListTable($table, $token);
+                    $user = FormsModel::mdlToListTable($table, null, $token);
                     $checkToken = md5($user[0]->user_name . "+" . $user[0]->email);
                                                         
                     if($checkToken == $token) {

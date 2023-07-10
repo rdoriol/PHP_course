@@ -1,7 +1,11 @@
 <?php
+  $user_name = "";  
+  $email = "";
+  $pwd = "";
   if(isset($_GET["token"]) && $_GET["token"] != "") {
     $list = FormController::ctrToListTable($_GET["token"]);
     $user_name = $list[0]->user_name;
+            echo $user_name;
     $email = $list[0]->email;
     $pwd = $list[0]->pwd;
 
@@ -24,7 +28,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
           </div>
-          <input type="text" class="form-control" placeholder="Escriba nuevo nombre" id="nombre" name="nombreActualizar" value=<?php echo $user_name; ?> />
+          <input type="text" class="form-control" placeholder="Escriba nuevo nombre" id="nombre" name="nombreActualizar" value=<?php echo $user_name; ?> >
         </div>
     </div>
 
@@ -34,7 +38,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa-sharp fa-solid fa-envelope"></i></span>
           </div>
-          <input type="email" class="form-control" placeholder="Escriba nuevo e-mail" id="email" name="emailActualizar" value=<?php echo $email; ?> />
+          <input type="email" class="form-control" placeholder="Escriba nuevo e-mail" id="email" name="emailActualizar" value=<?php echo $email; ?> >
         </div>
     </div>
 
